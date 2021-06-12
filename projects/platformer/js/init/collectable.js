@@ -38,21 +38,11 @@
         
         // example: 
         createCollectable(type.steve, 200, 170, 6, 0.7);
-        /*
-createCollectable(type, x, y, gravity, bounce);
-
-type: The type of the collectable. 
-x: The x coordineate for the collectable.
-y: The y coordineate for the collectable.
-gravity: OPTIONAL The gravitational pull on the collectable.
-bounce: OPTIONAL A factor effecting how much the collectable will bounce off platforms, etc.
-*/
-      createCollectable(type.steve, 200, 170, 6, 0.7);
-      createCollectable(type.max, 400, 170, 6, 0.7);
-      createCollectable(type.db, 350, 170, 6, 0.7);
-      createCollectable(type.grace, 150, 170, 8, 0.7);
-      createCollectable(type.kennedi, 100, 200, 6, 0.7);
-    
+        createCollectable(type.steve, 200, 170, 6, 0.7);
+        createCollectable(type.max, 400, 170, 6, 0.7);
+        createCollectable(type.db, 350, 170, 6, 0.7);
+        createCollectable(type.grace, 150, 170, 8, 0.7);
+        createCollectable(type.kennedi, 100, 200, 6, 0.7);
         
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////

@@ -25,22 +25,23 @@
      */ 
     function init(game) {
         let createPlatform = platform.create;
-    
+
         ////////////////////////////////////////////////////////////////////////
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
+        
         /*
-createPlatform(x, y, scaleX, scaleY);
- 
-x: The x coordinate for the platform.
-y: The y coordinate for the platform.
-scaleX: OPTIONAL The scale factor on the x-axis, this value will stretch the platform in width.
-scaleY: OPTIONAL The scale factor on the y-axis, this value will stretch the platform in height.
-*/
-createPlatform(450, 250);           // normal platform
-createPlatform(300, 300, 0.2)       // small horizontal platform (30% the normal width)
-createPlatform(500, 500, 0.3, 10)   // tall vertical wall (30% the normal width and 10x the height)
-createPlatform(150, 400);
+         * ground : here, we create a floor. Given the width of of the platform 
+         * asset, giving it a scaleX and scaleY of 2 will stretch it across the 
+         * bottom of the game.
+         */
+        createPlatform(0, game.world.height - 32, 3, 2);    // DO NOT DELETE
 
+        // example:
+        createPlatform(200, 400);
+
+        createPlatform(125, 600, 0.5, 50);   // tall vertical wall (30% the normal width and 10x the height)
+        createPlatform(200, 500);
+        
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
     }
