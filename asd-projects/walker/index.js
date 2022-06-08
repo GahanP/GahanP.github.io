@@ -17,30 +17,17 @@ function runProgram(){
     "DOWN": 40,
 
   }
-  
+  var x = 0
+  var y = 0
+  var speedX = 0
+  var speedY = 0
   // Game Item Objects
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown); 
-  function handleKeyDown(event) {  
-    if (event.which === KEY.ENTER) {
-        console.log("enter pressed");
-    }
-}
-    if (event.which === KEY.LEFT) {
-        console.log("left pressed");
-    }
-    if (event.which === KEY.UP) {
-      console.log("up pressed");
-  }
-  if (event.which === KEY.RIGHT) {
-    console.log("right pressed");
-}
-if (event.which === KEY.DOWN) {
-  console.log("down pressed");
-}
+  
   // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -59,8 +46,28 @@ if (event.which === KEY.DOWN) {
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) {  
+    if (event.which === KEY.ENTER) {
+        console.log("enter pressed");
+    }
 
+    if (event.which === KEY.LEFT) {
+      speedX = -5;
+        console.log("left pressed");
+    }
+    if (event.which === KEY.UP) {
+      console.log("up pressed");
+      speedY = -5
+  }
+    if (event.which === KEY.RIGHT) {
+      sppedX = 5
+      console.log("right pressed");
+}
+    if (event.which === KEY.DOWN) {
+      speedY = 5
+      console.log("down pressed");
+    
+}
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -76,4 +83,14 @@ if (event.which === KEY.DOWN) {
     $(document).off();
   }
   
+    }
+    repositionGameItem(); {
+      positionX += speedX;
+      positionY += positionY;
+    }
+    
+    redrawGameItem(); {
+      $("#walker").css("left", positionX);
+      $("#walker").css("up", positionY);
+
     }
