@@ -1,8 +1,8 @@
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
-  
-function runProgram(){
+
+function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -17,8 +17,8 @@ function runProgram(){
     "DOWN": 40,
 
   }
-  var x = 0
-  var y = 0
+  var positionX = 0
+  var positionY = 0
   var speedX = 0
   var speedY = 0
   // Game Item Objects
@@ -26,8 +26,8 @@ function runProgram(){
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown); 
-  
+  $(document).on('keydown', handleKeyDown);
+
   // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -42,42 +42,42 @@ function runProgram(){
     repositionGameItem();
     redrawGameItem();
 
-  
+
 
   }
-  
+
   /* 
   Called in response to events.
   */
-  function handleKeyDown(event) {  
+  function handleKeyDown(event) {
     if (event.which === KEY.ENTER) {
-        console.log("enter pressed");
+      console.log("enter pressed");
     }
 
     if (event.which === KEY.LEFT) {
       speedX = -5;
-        console.log("left pressed");
+      console.log("left pressed");
     }
     if (event.which === KEY.UP) {
       console.log("up pressed");
       speedY = -5
-  }
+    }
     if (event.which === KEY.RIGHT) {
       sppedX = 5
       console.log("right pressed");
-}
+    }
     if (event.which === KEY.DOWN) {
       speedY = 5
       console.log("down pressed");
-    
-}
+
+    }
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
@@ -85,16 +85,16 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
-    
-    function repositionGameItem() {
-      positionX += speedX;
-      positionY += positionY;
-    }
-    
-    function redrawGameItem() {
-      $("#walker").css("left", positionX);
-      $("#walker").css("up", positionY);
 
-    }
+
+  function repositionGameItem() {
+    positionX += speedX;
+    positionY += positionY;
   }
+
+  function redrawGameItem() {
+    $("#walker").css("left", positionX);
+    $("#walker").css("top", positionY);
+
+  }
+}
