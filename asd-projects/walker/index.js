@@ -63,7 +63,7 @@ function runProgram() {
       speedY = -5
     }
     if (event.which === KEY.RIGHT) {
-      sppedX = 5
+      speedX = 5
       console.log("right pressed");
     }
     if (event.which === KEY.DOWN) {
@@ -72,7 +72,21 @@ function runProgram() {
 
     }
   }
+  function handleKeyUp(event) {
+    if (event.which === KEY.LEFT) {
+      speedX = 0;
+    }
+    if (event.which === KEY.UP) {
+      speedY = 0
+    }
+    if (event.which === KEY.RIGHT) {
+      speedX = 0
+    }
+    if (event.which === KEY.DOWN) {
+      speedY = 0
 
+    }
+  }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -89,7 +103,7 @@ function runProgram() {
 
   function repositionGameItem() {
     positionX += speedX;
-    positionY += positionY;
+    positionY += speedY;
   }
 
   function redrawGameItem() {
