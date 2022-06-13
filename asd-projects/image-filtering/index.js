@@ -21,7 +21,7 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 applyFilter();
-  
+ applyFilter(reddify)
 
   // do not change the below line of code
   render($("#display"), image);
@@ -32,15 +32,15 @@ applyFilter();
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-function applyFilter () {
+function applyFilter (filterFunction) {
   for (var r = 0; r < image.length; r++) {
     var row = image[r]
     for (var c = 0; c < row.length; c++) {
       var rgbString = image[r][c];
-      var rgbNumbers = rgbStringToArray(rgbString)
+      filterFunction(rgbNumbers);
       rgbNumbers[RED] = 255;
       rgbString = rgbStringToArray(rgbNumbers)
-      imageString = image[r][c];
+      rgbString = image[r][c];
 }
 }
 }
@@ -51,7 +51,9 @@ function applyFilter () {
 
 
 // TODO 3: Create reddify function
-
+function reddify (array){
+  array[RED] = 200;
+}
 
 // TODO 6: Create more filter functions
 
