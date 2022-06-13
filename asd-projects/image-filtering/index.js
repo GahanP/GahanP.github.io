@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+applyFilter();
   
 
   // do not change the below line of code
@@ -32,8 +32,14 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-
-
+function applyFilter () {
+  for (var r = 0; r < image.length; r++) {
+    for (var c = 0; c < image.length; c++) {
+}
+}
+var rgString = image[r][c];
+rgbStringToArray(rgbString)
+var rgbNumbers =
 // TODO 7: Create the applyFilterNoBackground function
 
 
@@ -47,3 +53,4 @@ function applyAndRender() {
 
 
 // CHALLENGE code goes below here
+}
