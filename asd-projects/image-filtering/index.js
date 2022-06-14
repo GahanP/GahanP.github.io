@@ -20,7 +20,6 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-applyFilter();
  applyFilter(reddify)
 
   // do not change the below line of code
@@ -38,9 +37,8 @@ function applyFilter (filterFunction) {
     for (var c = 0; c < row.length; c++) {
       var rgbString = image[r][c];
       filterFunction(rgbNumbers);
-      rgbNumbers[RED] = 255;
       rgbString = rgbStringToArray(rgbNumbers)
-      rgbString = image[r][c];
+      image[r][c] = rgbString
 }
 }
 }
