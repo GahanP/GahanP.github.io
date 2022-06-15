@@ -36,17 +36,23 @@ function applyFilter (filterFunction) {
     var row = image[r]
     for (var c = 0; c < row.length; c++) {
       var rgbString = image[r][c];
+      var rgbNumbers = rgbStringToArray(rgbString);
       filterFunction(rgbNumbers);
-      rgbString = rgbStringToArray(rgbNumbers)
+      rgbStringToArray = rgbString(rgbNumbers)
       image[r][c] = rgbString
 }
 }
 }
 // TODO 7: Create the applyFilterNoBackground function
+function applyFilterNoBackground () {}
 
 
 // TODO 5: Create the keepInBounds function
-
+function keepInBounds(limit) {
+  limit = Math.max(limit, 0);
+  limit = Math.min(limit, 255);
+  return limit
+}
 
 // TODO 3: Create reddify function
 function reddify (array){
@@ -54,6 +60,11 @@ function reddify (array){
 }
 
 // TODO 6: Create more filter functions
-
+function decreaseBlue (low) {
+  low[BLUE] = keepInBounds(low[BLUE] - 50);
+}
+function increaseGreenByBlue (high) {
+  high[GREEN]= keepInBounds(high[BLUE] + high[GREEN]);
+}
 
 // CHALLENGE code goes below here
