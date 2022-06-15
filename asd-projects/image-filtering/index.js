@@ -38,8 +38,8 @@ function applyFilter (filterFunction) {
       var rgbString = image[r][c];
       var rgbNumbers = rgbStringToArray(rgbString);
       filterFunction(rgbNumbers);
-      rgbStringToArray = rgbString(rgbNumbers)
-      image[r][c] = rgbString
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[r][c] = rgbString;
 }
 }
 }
