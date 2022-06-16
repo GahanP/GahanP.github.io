@@ -46,10 +46,24 @@ function applyFilter (filterFunction) {
 }
 }
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground () {
-  var backgroundColor = 
+function applyFilterNoBackground (filterFunction) {
+  var backgound = [0][0];
+  for (var r = 0; r < image.length; r++) {
+    var row = image[r]
+    for (var c = 0; c < row.length; c++) {
+      if (backgound !== rgbString) {
+        var rgbNumbers = rgbStringToArray(rgbString);
+      filterFunction(rgbNumbers);
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[r][c] = rgbString;
+      }
+      else {
+        applyFilter();
+      }
+  
 }
-
+}
+}
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(limit) {
