@@ -45,6 +45,7 @@ async function quickSort(array, left, right){
 // TODOs 4 & 5: Implement partition
 async function partition(array, left, right){
     var pivot = array[Math.floor((right + left)/2)].value;
+    while (left<right)
 }
 
 // TODO 1: Implement swap
