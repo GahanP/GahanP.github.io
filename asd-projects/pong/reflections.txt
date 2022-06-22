@@ -7,7 +7,7 @@ What are the conditions when the game begins?
 Two pads are against the wall and a ball is in the middle. 
 
 Does the game have an end? If so, what are the conditions for when it ends?
-Yes, the game ends when a player gets 10 points. 
+Yes, the game ends when a player gets 5 points. 
 
 What ifs will there be?
 If the pad does not hit the pad, the opponent recieves a point. If the ball touches the pad, it bounces off to the other
@@ -25,7 +25,7 @@ Which will be animated? (the box)
 The ball and the pads are animated.
 
 What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
-I would have to manage positionY, positionX, and points. 
+I would have to manage positionY, positionX, speedX, speedY, and points. 
 
 Events / Logic:
 What events will occur in this game? (timer events, keyboard events, clicking events?)
@@ -36,4 +36,4 @@ For example: in bouncing box, when the box is clicked:
 The speed is increased
 The point total goes up by 1 and is displayed on the box
 The position of the box is reset to 0
-The keyboard event moves the pads so that they can hit the ball. 
+The keyboard event moves the pads so that they can hit the ball.  The key up event makes the pad stop moving. 

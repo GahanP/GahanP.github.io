@@ -42,6 +42,17 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+  function factory(id){
+    var task = {};
+    task.id = id
+    task.x = parseFloat($(id).css('left'));
+    task.y = parseFloat($(id).css('top'));
+    task.width = $(id).width();
+    task.height = $(id).height();
+    task.speedX = 0;
+    task.speedY = 0;
+    return task;
+  }
   
   function endGame() {
     // stop the interval timer
