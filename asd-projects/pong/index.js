@@ -11,7 +11,7 @@ function runProgram() {
   const FRAME_RATE = 60;
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
-  var KEYCODE = {
+  var KEY = {
     "W": 87,
     "S": 83,
     "UP":38,
@@ -31,6 +31,7 @@ function runProgram() {
   $(document).on('keydown', handleKeyDownRight);     
   $(document).on('keyup', handleKeyUpRight);                                   // change 'eventType' to the type of event you want to handle
 
+  startBall();
   ///////////////////////////s/////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -40,9 +41,11 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
+moveObject(ball);
+moveObject(leftPaddle);
+moveObject(rightPaddle);
 
-
-  }
+}
 
   /* 
   Called in response to events.
@@ -59,7 +62,7 @@ function runProgram() {
     if (event.which === KEY.UP) {
       rightPaddle.speedY = +5;
     }
-    if (event.which === KEY.DOWNgit add -A) {
+    if (event.which === KEY.DOWN) {
       rightPaddle.speedY = -5;
     }
   }
@@ -94,7 +97,16 @@ function runProgram() {
     task.speedY = 0;
     return task;
   }
-
+function startBall(){
+ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+}
+function moveObject(element){
+  positionX += speedX;
+  positionY += speedY;
+  $(element.id).css("left", element.positionX);
+  $(element.id).css("top", element.positionY);
+}
 
   function endGame() {
     // stop the interval timer
