@@ -45,21 +45,36 @@ function runProgram() {
   */
   function handleKeyDown(event) {
     if (event.which === KEY.W) {
-      speedY = +5;
+      leftPaddle.speedY = +5;
     }
-    if (event, which === KEY.S) {
-      speedY = -5;
+    if (event.which === KEY.S) {
+      leftPaddle.speedY = -5;
+    }
+  }
+  function handleKeyDown(event) {
+    if (event.which === KEY.W) {
+      rightPaddle.speedY = +5;
+    }
+    if (event.which === KEY.S) {
+      rightPaddle.speedY = -5;
     }
   }
   function handleKeyUp(event) {
     if (event.which === KEY.W) {
-      speedY = 0;
+      leftPaddle.speedY = 0;
     }
     if (event.which === KEY.S) {
-      speedY = 0;
+      leftPaddle.speedY = 0;
     }
   }
-
+  function handleKeyUp(event) {
+    if (event.which === KEY.W) {
+      rightPaddle.speedY = 0;
+    }
+    if (event.which === KEY.S) {
+      rightPaddle.speedY = 0;
+    }
+  }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
