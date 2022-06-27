@@ -11,8 +11,14 @@ function runProgram(){
   const FRAME_RATE = 60;
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
+  var KEYCODE = {
+    W: 87,
+    S: 83,
+  }
+  
+  }
   // Game Item Objects
-c
+var ball = factory("#ball");
 var leftPaddle = factory("#lefPaddle");
 var rightPaddle = factory("#rightPaddle");
 
@@ -36,8 +42,20 @@ var rightPaddle = factory("#rightPaddle");
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
-
+  function handleKeyDown(event) {
+    if (event.which === KEY.W) {
+      speedY = +5;
+    }
+    if (event,which === KEY.S) {
+      speedY = -5;
+    }
+    function handleKeyUp(event) {
+      if (event.which === KEY.W) {
+        speedY = 0;
+      }
+      if (event.which === KEY.S) {
+        speedY = 0;
+      }     
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -64,5 +82,4 @@ var rightPaddle = factory("#rightPaddle");
     // turn off event handlers
     $(document).off();
   }
-  
 }
