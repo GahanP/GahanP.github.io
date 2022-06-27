@@ -12,12 +12,9 @@ function runProgram(){
   const FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-function left(id) {
-  var leftPaddle = {};
-  leftPaddle.id = id
-  leftPaddle.x = parseFloat($(id).css('left'));
-  leftPaddle.y = parseFloat($(id).css('top'));
-}
+c
+var leftPaddle = factory("#lefPaddle");
+var rightPaddle = factory("#rightPaddle");
 
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -58,9 +55,6 @@ function left(id) {
     task.speedY = 0;
     return task;
   }
-factory(#ball);
-factory(#leftPaddle);
-factory(#rightPaddle);
 
   
   function endGame() {
