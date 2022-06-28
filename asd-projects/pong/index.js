@@ -17,11 +17,12 @@ function runProgram() {
     "UP":38,
     "DOWN":40,
   }
-
+const BOARD_WIDTH = $("#board").width()
+const BOARD_HEIGHT = $("#board").height()
 
   // Game Item Objects
   var ball = factory("#ball");
-  var leftPaddle = factory("#lefPaddle");
+  var leftPaddle = factory("#leftPaddle");
   var rightPaddle = factory("#rightPaddle");
 
   // one-time setup
@@ -32,7 +33,7 @@ function runProgram() {
   $(document).on('keyup', handleKeyUpRight);                                   // change 'eventType' to the type of event you want to handle
 
   startBall();
-  ///////////////////////////s/////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
@@ -44,41 +45,42 @@ function runProgram() {
 moveObject(ball);
 moveObject(leftPaddle);
 moveObject(rightPaddle);
-
 }
-
+wallCollision(ball);
+wallCollision(leftPaddle);
+wallCollision(rightPaddle);
   /* 
   Called in response to events.
   */
   function handleKeyDown(event) {
-    if (event.which === KEY.W) {
+    if (event.which === KEY.S) {
       leftPaddle.speedY = +5;
     }
-    if (event.which === KEY.S) {
+    if (event.which === KEY.W) {
       leftPaddle.speedY = -5;
     }
   }
   function handleKeyDownRight(event) {
-    if (event.which === KEY.UP) {
+    if (event.which === KEY.DOWN) {
       rightPaddle.speedY = +5;
     }
-    if (event.which === KEY.DOWN) {
+    if (event.which === KEY.UP) {
       rightPaddle.speedY = -5;
     }
   }
   function handleKeyUp(event) {
-    if (event.which === KEY.W) {
+    if (event.which === KEY.S) {
       leftPaddle.speedY = 0;
     }
-    if (event.which === KEY.S) {
+    if (event.which === KEY.W) {
       leftPaddle.speedY = 0;
     }
   }
   function handleKeyUpRight(event) {
-    if (event.which === KEY.UP) {
+    if (event.which === KEY.DOWN) {
       rightPaddle.speedY = 0;
     }
-    if (event.which === KEY.DOWN) {
+    if (event.which === KEY.UP) {
       rightPaddle.speedY = 0;
     }
   }
@@ -106,6 +108,11 @@ function moveObject(element){
   element.y += element.speedY;
   $(element.id).css("left", element.x);
   $(element.id).css("top", element.y);
+}
+function wallCollision(detection){
+  if (detection.x>0 && dectection.y>0 && x + width>BOARD_WIDTH && y + height > BOARD_HEIGHT) {
+    return true;
+  } 
 }
 
   function endGame() {
