@@ -102,10 +102,10 @@ ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
 ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
 }
 function moveObject(element){
-  positionX += speedX;
-  positionY += speedY;
-  $(element.id).css("left", element.positionX);
-  $(element.id).css("top", element.positionY);
+  element.x += element.speedX;
+  element.y += element.speedY;
+  $(element.id).css("left", element.x);
+  $(element.id).css("top", element.y);
 }
 
   function endGame() {
