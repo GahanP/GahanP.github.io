@@ -45,10 +45,11 @@ const BOARD_HEIGHT = $("#board").height()
 moveObject(ball);
 moveObject(leftPaddle);
 moveObject(rightPaddle);
-}
 wallCollision(ball);
 wallCollision(leftPaddle);
 wallCollision(rightPaddle);
+}
+
   /* 
   Called in response to events.
   */
@@ -110,9 +111,9 @@ function moveObject(element){
   $(element.id).css("top", element.y);
 }
 function wallCollision(detection){
-  if (detection.x>0 && dectection.y>0 && x + width>BOARD_WIDTH && y + height > BOARD_HEIGHT) {
-    return true;
-  } 
+  if (detection.x < 0 || detection.y < 0 || detection.x + width > BOARD_WIDTH || detection.y + height > BOARD_HEIGHT) {
+    speedX = -speedX
+   } 
 }
 
   function endGame() {
