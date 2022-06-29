@@ -24,7 +24,7 @@ const BOARD_HEIGHT = $("#board").height()
   var ball = factory("#ball");
   var leftPaddle = factory("#leftPaddle");
   var rightPaddle = factory("#rightPaddle");
-
+  var updatedScore = ("#scoreID" + 1)
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keyup', handleKeyUp);    
@@ -48,6 +48,7 @@ moveObject(rightPaddle);
 wallCollision(ball);
 wallCollision(leftPaddle);
 wallCollision(rightPaddle);
+
 }
 
   /* 
@@ -111,11 +112,12 @@ function moveObject(element){
   $(element.id).css("top", element.y);
 }
 function wallCollision(detection){
-  if (detection.y < 0 || detection.height > BOARD_HEIGHT) {
+  if (detection.y < 0 || detection.y+detection.height > BOARD_HEIGHT) {
     detection.speedY = -detection.speedY
    } 
-   if (detection.x < 0 || detection.width > BOARD_WIDTH) {
+   if (detection.x < 0 || detection.x+detection.width > BOARD_WIDTH) {
     detection.speedX = -detection.speedX
+    $("#scoreId").text(updatedScore)
    } 
 }
 
