@@ -111,8 +111,11 @@ function moveObject(element){
   $(element.id).css("top", element.y);
 }
 function wallCollision(detection){
-  if (detection.x < 0 || detection.y < 0 || detection.x + width > BOARD_WIDTH || detection.y + height > BOARD_HEIGHT) {
-    speedX = -speedX
+  if (detection.y < 0 || detection.height > BOARD_HEIGHT) {
+    detection.speedY = -detection.speedY
+   } 
+   if (detection.x < 0 || detection.width > BOARD_WIDTH) {
+    detection.speedX = -detection.speedX
    } 
 }
 
