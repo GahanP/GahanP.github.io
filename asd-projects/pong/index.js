@@ -49,8 +49,8 @@ moveObject(rightPaddle);
 wallCollision(ball);
 wallCollision(leftPaddle);
 wallCollision(rightPaddle);
-
 }
+doCollide(ball, leftPaddle)
 
   /* 
   Called in response to events.
@@ -105,6 +105,8 @@ wallCollision(rightPaddle);
 function startBall(){
 ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
 ball.speedY = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+ball.x = 160
+ball.y = 160
 }
 function moveObject(element){
   element.x += element.speedX;
@@ -128,7 +130,11 @@ function wallCollision(detection){
    }
    } 
 }
-
+function doCollide(obj1, obj2) {
+  if (obj1.x > obj2.x){
+    obj1.sppedX = -obj1.speedX
+  }
+}
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
