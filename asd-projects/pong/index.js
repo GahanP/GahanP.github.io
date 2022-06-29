@@ -49,8 +49,10 @@ moveObject(rightPaddle);
 wallCollision(ball);
 wallCollision(leftPaddle);
 wallCollision(rightPaddle);
-}
 doCollide(ball, leftPaddle)
+doCollide(ball, rightPaddle)
+}
+
 
   /* 
   Called in response to events.
@@ -131,9 +133,23 @@ function wallCollision(detection){
    } 
 }
 function doCollide(obj1, obj2) {
-  if (obj1.x > obj2.x){
-    obj1.sppedX = -obj1.speedX
-  }
+  obj1.left = obj1.x;
+  obj1.top = obj1.y;
+  obj1.right = obj1.x + obj1.width;
+  obj1.bottom = obj1.y + obj1.height;
+  obj2.left = obj2.x;
+  obj2.top = obj2.y;
+  obj2.right = obj2.x + obj2.width;
+  obj2.bottom = obj2.y + obj2.height
+  if (obj1.top < obj2.bottom && obj1.bottom > obj2.top && obj1.right>obj2.left && obj1.left<obj2.right) {
+    obj1.speedX = -obj1.speedX
+}
+}
+if (scorePlayer1 === 5) {
+endGame();
+}
+if (scorePlayer2 === 5){
+  endGame();
 }
   function endGame() {
     // stop the interval timer
