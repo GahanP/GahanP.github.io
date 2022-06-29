@@ -51,6 +51,7 @@ wallCollision(leftPaddle);
 wallCollision(rightPaddle);
 doCollide(ball, leftPaddle)
 doCollide(ball, rightPaddle)
+end();
 }
 
 
@@ -145,11 +146,13 @@ function doCollide(obj1, obj2) {
     obj1.speedX = -obj1.speedX
 }
 }
+function end (){
 if (scorePlayer1 === 5) {
 endGame();
 }
 if (scorePlayer2 === 5){
   endGame();
+}
 }
   function endGame() {
     // stop the interval timer
